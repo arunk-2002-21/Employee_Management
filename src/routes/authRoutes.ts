@@ -1,9 +1,14 @@
-import { Router } from 'express';
-import { register, login } from '../controller/authController';
+import { Router, Request, Response } from 'express';
+import { loginEmployeeAuth } from '../controller/authController';
+const authenticationRoute = Router();
 
-const router = Router();
+authenticationRoute.post('/', async (req: Request, res: Response) => {
+    try{
+        const employeeData: any = await loginEmployeeAuth(req, res);
+        res.send(employeeData)
+    } catch(error){
+        console.log('Error in login employee account', error);
+    }
+})
 
-router.post('/register', register);
-router.post('/login', login);
-
-export default router;
+export {authenticationRoute};

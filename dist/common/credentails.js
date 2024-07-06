@@ -31,7 +31,10 @@ const credentails = {
         DATABASE: process.env.DATABASE || "",
         HOST: process.env.HOST_NAME || "",
         PASSWORD: process.env.PASSWORD || "",
-        PORT: Number(process.env.PORTNAME) || 5432,
+        DBPORT: Number(process.env.PORTNAME) || 5432,
+    },
+    jwt: {
+        SECRET_KEY: process.env.SECRET_KEY || ""
     }
 };
 exports.default = credentails;

@@ -8,28 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createTimesheetEntry = void 0;
-const Timesheet_1 = __importDefault(require("../models/Timesheet"));
-const createTimesheetEntry = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { shiftId, projectName, taskName, fromDate, toDate } = req.body;
-    try {
-        const timesheet = yield Timesheet_1.default.create({
-            employeeId: req.employee.id,
-            shiftId,
-            projectName,
-            taskName,
-            fromDate,
-            toDate,
-        });
-        res.status(201).json({ message: 'Timesheet entry created', timesheet });
-    }
-    catch (error) {
-        res.status(500).json({ message: 'Error creating timesheet entry', error });
-    }
+exports.timeSheetGenerate = void 0;
+const timeSheet_1 = require("../services/timeSheet");
+const timeSheetGenerate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const timesheet = yield (0, timeSheet_1.timeSheet)(req.body);
+    res.send(timesheet);
 });
-exports.createTimesheetEntry = createTimesheetEntry;
+exports.timeSheetGenerate = timeSheetGenerate;
 //# sourceMappingURL=timesheetController.js.map

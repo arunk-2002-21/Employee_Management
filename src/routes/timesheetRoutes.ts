@@ -1,9 +1,15 @@
-import { Router } from 'express';
-import { createTimesheetEntry } from '../controller/timesheetController';
-import { authenticateJWT } from '../services/auth';
+import { Router, Request, Response } from 'express';
+import { timeSheetGenerate } from '../controller/timesheetController';
+const fillTimeRouter = Router();
 
-const router = Router();
+fillTimeRouter.post('/', async (req: Request, res: Response)=>{
+    try{
+        const timesheet: any= await timeSheetGenerate(req, res);
+        res.send(timesheet);
+    }
+    catch(error){
+        console.log('Error in create timesheet', error)
+    }
+});
 
-router.post('/entry', authenticateJWT, createTimesheetEntry);
-
-export default router;
+export {fillTimeRouter};

@@ -1,0 +1,1 @@
+{"version":3,"file":"createEmployee.js","sourceRoot":"","sources":["../../src/controller/createEmployee.ts"],"names":[],"mappings":";;;;;;;;;;;;AACA,+EAAuE;AAGhE,MAAM,cAAc,GAAG,CAAO,GAAY,EAAE,GAAa,EAAC,EAAE;IAC/D,MAAM,QAAQ,GAAG,MAAM,IAAA,0CAAiB,EAAC,GAAG,CAAC,IAAI,CAAC,CAAC;IACnD,GAAG,CAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;AACvB,CAAC,CAAA,CAAA;AAHY,QAAA,cAAc,kBAG1B"}
